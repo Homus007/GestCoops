@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title || "Gestion Coopérative" %></title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <div class="grid-container">
+    <header class="header">
+      <div id="tableau_bord">
+        <div style="font-size: larger; font-weight: bolder;"><p>Tableau de bord</p></div>
+        <div style="font-size: smaller; font-weight:lighter; font-style: italic;">
+          <p>Coopérative agricole</p>
+        </div>
+      </div>
+      <div id="rechercher">
+        <input type="text" class="recherche-input" placeholder="Rechercher">
+      </div>
+      <div id="etat">
+        <span class="material-icons-outlined">wifi</span>
+        <p style="padding-left: 5px;">En ligne</p>
+      </div>
+      <div id="notification">
+        <span class="material-icons-outlined">notifications</span>
+        <div style="width : 2px; height: 2px; padding-left: 1px;border: 5px solid red; border-radius: 100%; background-color: red;">  </div>
+      </div>
+      <div id="admin">
+        <span class="material-icons-outlined" style="color: rgb(2, 27, 95);">account_circle</span>
+        <p style="padding-left: 5px;">Admin</p>
+      </div>
+    </header>
+    <aside class="sidebar">
+      <div id="entete" style="height: 11%; border-bottom: 0.1px solid rgb(126, 126, 126);">
+        <div style="width: 20%; height: 50%; background-color: rgb(177, 186, 0);">
+        </div>
+        <div id="entete_ecrit">
+          <p style="font-size: larger; font-weight: bolder;">GestCoop</p>
+          <p style="font-size: smaller; font-weight:lighter; font-style: italic; color: aqua;">
+            Gestion Coopérative</p>
+        </div>
+      </div>
+      <div id="boutons">
+        <div class="rubrique" id="membre">
+          <span class="material-icons-outlined">group</span>
+          <p style="padding-left: 5px;">Membres</p>
+        </div>
+        <div class="rubrique" id="recolte">
+          <span class="material-icons-outlined">grain</span>
+          <p style="padding-left: 5px;">Recoltes</p>
+        </div>
+        <div class="rubrique" id="vente">
+          <span class="material-icons-outlined">shopping_cart</span>
+          <p style="padding-left: 5px;">Ventes</p>
+        </div>
+        <div class="rubrique" id="cotisation">
+          <span class="material-icons-outlined">attach_money</span>
+          <p style="padding-left: 5px;">Cotisations</p>
+        </div>
+        <div class="rubrique" id="tache">
+          <span class="material-icons-outlined">task</span>
+          <p style="padding-left: 5px;">Tâches</p>
+        </div>
+        <div class="rubrique" id="document">
+          <span class="material-icons-outlined">folder</span>
+          <p style="padding-left: 5px;">Documents</p>
+        </div>
+        <div class="rubrique" id="rapport">
+          <span class="material-icons-outlined">article</span>
+          <p style="padding-left: 5px;">Rapports</p>
+        </div>
+        <div class="rubrique" id="parametre">
+          <span class="material-icons-outlined">settings</span>
+          <p style="padding-left: 5px;">Parametres</p>
+        </div>
+      </div>
+      
+    </aside>
+    <main class="main-container">
+      <div class="grid grid-cols-5 gap-3 mb-2 mt-2">
+        <div class="p-4 bg-white shadow rounded text-center">
+          <span class="material-icons-outlined">group</span>
+          <p class="text-gray-500">Membres actifs</p>
+          <p class="text-3xl font-bold"><%= stats.membres %></p>
+        </div>
+        <div class="p-4 bg-white shadow rounded text-center">
+          <span class="material-icons-outlined">area_chart</span>
+          <p class="text-gray-500">Parcelles</p>
+          <p class="text-3xl font-bold"><%= stats.parcelles %></p>
+        </div>
+        <div class="p-4 bg-white shadow rounded text-center">
+          <span class="material-icons-outlined">attach_money</span>
+          <p class="text-gray-500">Cotisations (XOF)</p>
+          <p class="text-3xl font-bold"><%= stats.cotisations.toLocaleString() %></p>
+        </div>
+        <div class="p-4 bg-white shadow rounded text-center">
+          <span class="material-icons-outlined">grain</span>
+          <p class="text-gray-500">Production totale (t)</p>
+          <p class="text-3xl font-bold"><%= stats.parcelles %></p>
+        </div>
+        <div class="p-4 bg-white shadow rounded text-center">
+          <span class="material-icons-outlined">shopping_cart</span>
+          <p class="text-gray-500">Ventes (XOF)</p>
+          <p class="text-3xl font-bold"><%= stats.cotisations.toLocaleString() %></p>
+        </div>
+      </div>
+      <!-- Graphiques -->
+      <div class="alignement" style="justify-content:flex-start;">
+        <div class="p-4 bg-red-100 shadow rounded" id="alignement">
+          <div>
+            <span class="material-icons-outlined" style="color: rgb(236, 158, 158);">warning</span>
+          </div>
+          <div style="padding-left: 2%;">
+            <h2 class="font-bold text-red-500 mb-2">Cotisations en retard</h2>
+            <h2 class="italic text-red-500 mb-2">1 membre en retard de cotisation</h2>
+          </div>
+        </div>
+        <div class="p-4 bg-green-100 shadow rounded" id="alignement">
+          <div>
+            <span class="material-icons-outlined" style="color: rgb(158, 236, 175);">check</span>
+          </div>
+          <div style="padding-left: 2%;">
+            <h2 class="font-bold text-green-500 mb-2">Cotisations payés</h2>
+            <h2 class="italic text-green-500 mb-2">84 Membres ont totalement payés leurs cotisations</h2>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="p-2 bg-white shadow rounded">
+          <h2 class="font-bold mb-2">Actions rapides</h2>
+          <div class="action_rapide">
+            <div class="alignement" style="background-color: rgb(179, 228, 179); border: 0.1 solid green; border-radius: 3%; padding: 10px 30px 10px 30px;">
+              <span class="material-icons-outlined">group</span>
+              <h3 class="mb-2 pl-1">Ajouter membre</h3>
+            </div>
+            <div class="alignement" style="background-color: rgb(179, 202, 228); border: 0.1 solid blue; border-radius: 3%; padding: 10px 30px 10px 30px;">
+              <span class="material-icons-outlined">attach_money</span>
+              <h3 class="mb-2 pl-1">Enregistrer cotisation</h3>
+            </div>
+            <div class="alignement" style="background-color: rgb(228, 179, 226); border: 0.1 solid purple; border-radius: 3%; padding: 10px 30px 10px 30px;">
+              <span class="material-icons-outlined">grain</span>
+              <h3 class="mb-2 pl-1">Ajouter recolte</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+    </footer>
+    <script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/dashboard.js"></script>
+    <script>
+      //const stats = <%= JSON.stringify(stats) %>; // Injection des données backend
+      //initDashboard(stats);
+    </script>
+  </div>
+</body>
+</html>
