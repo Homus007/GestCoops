@@ -17,6 +17,7 @@ body {
   width:100%;
   color: black;
   display: flex;
+  flex-direction: row;
   align-items: center;
   height: 100%;
   justify-content: space-between;
@@ -91,7 +92,13 @@ body {
   justify-items: center;
   justify-content: flex-start;
   color: white;
-  padding-left: 5%;
+  padding: 5%;
+  
+}
+.rubrique:hover{
+  border : 1px solid rgb(26, 83, 206);
+  border-radius: 2.5%;
+  background-color: rgb(26, 83, 206);
 }
 #boutons{
   display: flex;
@@ -99,7 +106,9 @@ body {
   justify-items:center;
   justify-content: space-around;
   align-content:space-around;
+  width: 80%;
   height: 89%;
+  padding-left: 10%;
   font-weight: normal;
 }
 #entete{
@@ -131,6 +140,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-items: center;
+  align-items: center;
   justify-content: space-between;
 }
 #alignement{
