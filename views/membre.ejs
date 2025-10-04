@@ -132,19 +132,35 @@
       <div class="align_membres">
         <% membre.forEach(m => { %>
           <div class="alignement_col" id="div_membre" style=" width: 30%;">
-            <div class="alignement">
+            <div class="alignement" style="margin-top: 3%;">
               <h2 style="font-weight: bold;">Nom et prenoms</h2>
-              <p style="padding-left: 10px;">Actif</p>
+              <p style="margin-left: 10px; background-color: rgb(215, 249, 215); border-radius: 15%;
+               padding-left: 10px; padding-right: 10px;">Actif</p>
             </div>
-            <div class="alignement_col">
+            <div class="alignement_col" style="font-weight: lighter; font-style: italic;">
               <p>Num.producteur</p>
               <p>+225 0102030405</p>
               <p>Adhésion : 01/01/99</p>
             </div>
-            <div class="alignement">
-              <p>Voir</p>
-              <p  style="margin-left: 10%;">Modifier</p>
-              <p  style="margin-left: 10%;">Sup</p>
+            <div class="alignement" style="margin-top: 2%;">
+              <div class="alignement" style="margin-left: 10px; background-color: rgb(193, 221, 248); 
+                border-radius: 10%; padding-left: 10px; padding-right: 10px;">
+                <span class="material-icons-outlined" style="color: white;">visibility</span>
+                <button>Voir</button>
+              </div>
+              <div class="alignement" style="margin-left: 10px; background-color: rgb(215, 249, 215); 
+                border-radius: 10%; padding-left: 10px; padding-right: 10px;">
+                <span class="material-icons-outlined" style="color:white ;">edit</span>
+                <button>Modifier</button>
+              </div>
+              <div class="alignement" style="margin-left: 10px; background-color: rgb(251, 201, 203); 
+                border-radius: 10%; padding-left: 10px; padding-right: 10px;">
+                <span class="material-icons-outlined" style="color:white;">delete</span>
+                <button></button>
+              </div>
+              
+              
+              
             </div>
           </div>
         <% }) %>

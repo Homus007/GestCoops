@@ -41,7 +41,22 @@ app.get("/membre", (req, res) => {
     { id: 2, nom: 'Yao', prenom: 'Léon', telephone: 150 },
     { id: 3, nom: 'Koné', prenom: 'Isaac', telephone: 180 },
     { id: 4, nom: 'Trazié', prenom: 'Georges', telephone: 220 },
-    { id: 5, nom: 'Kramo', prenom: 'Youssouf', telephone: 300 }
+    { id: 5, nom: 'Kramo', prenom: 'Youssouf', telephone: 300 },
+     { id: 4, nom: 'Trazié', prenom: 'Georges', telephone: 220 },
+    { id: 1, nom: 'Koffi', prenom: 'Jean', telephone: 120 },
+    { id: 2, nom: 'Yao', prenom: 'Léon', telephone: 150 },
+    { id: 3, nom: 'Koné', prenom: 'Isaac', telephone: 180 },
+    { id: 4, nom: 'Trazié', prenom: 'Georges', telephone: 220 },
+    { id: 5, nom: 'Kramo', prenom: 'Youssouf', telephone: 300 },
+    { id: 5, nom: 'Kramo', prenom: 'Youssouf', telephone: 300 },
+    { id: 1, nom: 'Koffi', prenom: 'Jean', telephone: 120 },
+    { id: 2, nom: 'Yao', prenom: 'Léon', telephone: 150 },
+    { id: 3, nom: 'Koné', prenom: 'Isaac', telephone: 180 },
+    { id: 4, nom: 'Trazié', prenom: 'Georges', telephone: 220 },
+    { id: 1, nom: 'Koffi', prenom: 'Jean', telephone: 120 },
+    { id: 2, nom: 'Yao', prenom: 'Léon', telephone: 150 },
+    { id: 3, nom: 'Koné', prenom: 'Isaac', telephone: 180 },
+    { id: 4, nom: 'Trazié', prenom: 'Georges', telephone: 220 }
   ];
   res.render("membre", { title: "Gestion des membres", membre: membres });
 });
