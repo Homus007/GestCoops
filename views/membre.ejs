@@ -1,35 +1,163 @@
-<% layout('layout') %>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title || "Gestion des membres" %></title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+<div class="grid-container">
+    <header class="header">
+      <div id="tableau_bord">
+        <div style="font-size: larger; font-weight: bolder;"><p>Getion des membres</p></div>
+        <div style="font-size: smaller; font-weight:lighter; font-style: italic;">
+          <p>Coopérative agricole</p>
+        </div>
+      </div>
+      <div class="alignement">
+        <div id="rechercher">
+          <input type="text" class="recherche-input" placeholder="Rechercher">
+        </div>
+        <div id="etat">
+          <span class="material-icons-outlined">wifi</span>
+          <p style="padding-left: 5px;">En ligne</p>
+        </div>
+        <div id="notification">
+          <span class="material-icons-outlined">notifications</span>
+          <div style="width : 2px; height: 2px; padding-left: 1px;border: 5px solid red; border-radius: 100%; background-color: red;">  </div>
+        </div>
+        <div id="admin">
+          <span class="material-icons-outlined" style="color: rgb(2, 27, 95);">account_circle</span>
+          <p style="padding-left: 5px;">Admin</p>
+        </div>
+      </div>
+    </header>
+    <aside class="sidebar">
+      <div id="entete" style="height: 11%; border-bottom: 0.1px solid rgb(126, 126, 126);">
+        <div style="width: 20%; height: 50%; background-color: rgb(177, 186, 0);">
+        </div>
+        <div id="entete_ecrit">
+          <p style="font-size: larger; font-weight: bolder;">GestCoop</p>
+          <p style="font-size: smaller; font-weight:lighter; font-style: italic; color: aqua;">
+            Gestion Coopérative</p>
+        </div>
+      </div>
+      <div id="boutons">
+        <a href="/membres">
+            <div class="rubrique" id="membre">
+            <span class="material-icons-outlined">group</span>
+            <p style="padding-left: 5px;">Membres</p>
+          </div>
+        </a>
+        <a href="#">
+        <div class="rubrique" id="parcelle">
+          <span class="material-icons-outlined">area_chart</span>
+          <p style="padding-left: 5px;">Parcelle</p>
+        </div>
+        </a>
+        <a href="#">
+        <div class="rubrique" id="recolte">
+          <span class="material-icons-outlined">grain</span>
+          <p style="padding-left: 5px;">Recoltes</p>
+        </div>
+        </a>
+        <a href="#">
+        <div class="rubrique" id="vente">
+          <span class="material-icons-outlined">shopping_cart</span>
+          <p style="padding-left: 5px;">Ventes</p>
+        </div>
+        </a>
+        <a href="#">
+        <div class="rubrique" id="cotisation">
+          <span class="material-icons-outlined">attach_money</span>
+          <p style="padding-left: 5px;">Cotisations</p>
+        </div>
+        </a>
+        <a href="#">
+        <div class="rubrique" id="tache">
+          <span class="material-icons-outlined">task</span>
+          <p style="padding-left: 5px;">Tâches</p>
+        </div>
+        </a>
+        <a href="#">
+        <div class="rubrique" id="document">
+          <span class="material-icons-outlined">folder</span>
+          <p style="padding-left: 5px;">Documents</p>
+        </div>
+        </a>
+        <a href="#">
+        <div class="rubrique" id="rapport">
+          <span class="material-icons-outlined">article</span>
+          <p style="padding-left: 5px;">Rapports</p>
+        </div>
+        </a>
+        <a href="#">
+        <div class="rubrique" id="parametre">
+          <span class="material-icons-outlined">settings</span>
+          <p style="padding-left: 5px;">Parametres</p>
+        </div>
+        </a>
+      </div>
+      
+    </aside>
+    <main class="main-container">
+      <div class="alignement">
+        <div id="tableau_bord">
+          <div style="font-size: larger; font-weight: bolder;"><p>Membres (10)</p></div>
+          <div style="font-size: smaller; font-weight:lighter; font-style: italic;">
+          <p>Gestion des membres de la coopérative</p>
+          </div>
+        </div>
+        <div class="alignement" id="rubrique" style="background-color: rgb(13, 51, 222);border-radius: 3%;">
+          <span class="material-icons-outlined">add</span>
+          <button type="submit" class="text-white px-4 py-1">Ajouter un membre</button>
+        </div>
+      </div>
+      <div class="alignement" style="padding-top: 1%;">
+        <div style="width: 60%;">
+          <input type="text" class="recherche-input" placeholder="Rechercher par nom ou numéro">
+        </div>
+        <div style="width: 20%;">
+          <select style="padding: 3%; border-radius: 3%;">
+            <option>Tous les statuts</option>
+          </select>
+        </div>
+        <div class="alignement" style=" border-radius: 3%; background-color: rgb(255, 255, 255);">
+          <span class="material-icons-outlined" style="color: black;">vertical_align_bottom</span>
+          <button type="submit" class="text-white px-4 py-1" style="color: black;">Exporter</button>
+        </div>
+      </div>
+      <div class="align_membres">
+        <% membre.forEach(m => { %>
+          <div class="alignement_col" id="div_membre" style=" width: 30%;">
+            <div class="alignement">
+              <h2 style="font-weight: bold;">Nom et prenoms</h2>
+              <p style="padding-left: 10px;">Actif</p>
+            </div>
+            <div class="alignement_col">
+              <p>Num.producteur</p>
+              <p>+225 0102030405</p>
+              <p>Adhésion : 01/01/99</p>
+            </div>
+            <div class="alignement">
+              <p>Voir</p>
+              <p  style="margin-left: 10%;">Modifier</p>
+              <p  style="margin-left: 10%;">Sup</p>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+      
 
-<h1 class="text-2xl font-bold mb-6">Liste des membres</h1>
-
-<form action="/membres/add" method="POST" class="mb-6">
-  <input type="text" name="nom" placeholder="Nom" class="border p-2 mr-2" required>
-  <input type="text" name="prenom" placeholder="Prénom" class="border p-2 mr-2" required>
-  <input type="text" name="telephone" placeholder="Téléphone" class="border p-2 mr-2">
-  <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Ajouter</button>
-</form>
-
-<table class="w-full border">
-  <thead>
-    <tr class="bg-gray-200">
-      <th class="p-2 border">ID</th>
-      <th class="p-2 border">Nom</th>
-      <th class="p-2 border">Prénom</th>
-      <th class="p-2 border">Téléphone</th>
-      <th class="p-2 border">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% membres.forEach(m => { %>
-      <tr>
-        <td class="border p-2"><%= m.id %></td>
-        <td class="border p-2"><%= m.nom %></td>
-        <td class="border p-2"><%= m.prenom %></td>
-        <td class="border p-2"><%= m.telephone %></td>
-        <td class="border p-2">
-          <a href="/membres/delete/<%= m.id %>" class="text-red-500">Supprimer</a>
-        </td>
-      </tr>
-    <% }) %>
-  </tbody>
-</table>
+</main>
+    <footer>
+    </footer>
+    <script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/dashboard.js"></script>
+  </div>
+</body>
+</html>

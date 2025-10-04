@@ -21,11 +21,33 @@ app.get("/", (req, res) => {
   };
   res.render("dashboard", { title: "Tableau de bord", stats });
 });
-
-// Routes
-app.get("/", (req, res) => {
-  res.render("index", { title: "Accueil Coopérative" });
+app.get("/membre", (req, res) => {
+  const membres = [
+    { id: 1, nom: 'Koffi', prenom: 'Jean', telephone: 120 },
+    { id: 2, nom: 'Yao', prenom: 'Léon', telephone: 150 },
+    { id: 3, nom: 'Koné', prenom: 'Isaac', telephone: 180 },
+    { id: 4, nom: 'Trazié', prenom: 'Georges', telephone: 220 },
+    { id: 1, nom: 'Koffi', prenom: 'Jean', telephone: 120 },
+    { id: 2, nom: 'Yao', prenom: 'Léon', telephone: 150 },
+    { id: 3, nom: 'Koné', prenom: 'Isaac', telephone: 180 },
+    { id: 4, nom: 'Trazié', prenom: 'Georges', telephone: 220 },
+    { id: 5, nom: 'Kramo', prenom: 'Youssouf', telephone: 300 },
+    { id: 5, nom: 'Kramo', prenom: 'Youssouf', telephone: 300 },
+    { id: 1, nom: 'Koffi', prenom: 'Jean', telephone: 120 },
+    { id: 2, nom: 'Yao', prenom: 'Léon', telephone: 150 },
+    { id: 3, nom: 'Koné', prenom: 'Isaac', telephone: 180 },
+    { id: 4, nom: 'Trazié', prenom: 'Georges', telephone: 220 },
+    { id: 1, nom: 'Koffi', prenom: 'Jean', telephone: 120 },
+    { id: 2, nom: 'Yao', prenom: 'Léon', telephone: 150 },
+    { id: 3, nom: 'Koné', prenom: 'Isaac', telephone: 180 },
+    { id: 4, nom: 'Trazié', prenom: 'Georges', telephone: 220 },
+    { id: 5, nom: 'Kramo', prenom: 'Youssouf', telephone: 300 }
+  ];
+  res.render("membre", { title: "Gestion des membres", membre: membres });
 });
+
+
+// Penser à mettre en avant le stock
 
 app.listen(3001, () => {
   console.log("🚀 Serveur démarré sur http://localhost:3001");

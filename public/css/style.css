@@ -60,6 +60,7 @@ body {
     background-repeat: no-repeat;
     background-position: 10px center;
     background-size: 20px 20px;
+    width: 75%;
   }
 .header-contenu{
   display: flex;
@@ -95,10 +96,22 @@ body {
   padding: 5%;
   
 }
+#rubrique{
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  justify-content: flex-start;
+  color: white;
+}
 .rubrique:hover{
   border : 1px solid rgb(26, 83, 206);
   border-radius: 2.5%;
   background-color: rgb(26, 83, 206);
+}
+#rubrique:hover{
+  border : 1px solid rgb(58, 112, 228);
+  border-radius: 2.5%;
+  background-color: rgb(58, 112, 228);
 }
 #boutons{
   display: flex;
@@ -140,6 +153,23 @@ body {
   display: flex;
   flex-direction: row;
   justify-items: center;
+  justify-content: space-between;
+  padding: 0.3%;
+}
+.align_membres{
+   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-items: start;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.3%;
+  overflow-y: scroll;
+}
+.alignement_col{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
   align-items: center;
   justify-content: space-between;
 }
@@ -149,4 +179,20 @@ body {
   justify-items: center;
   justify-content: flex-start;
   align-items: center;
+}
+#ajouter{
+  background-color: white;
+}
+#ajouter:hover{
+  border : 0px solid rgb(26, 83, 206);
+  border-radius: 2.5%;
+  background-color: rgb(26, 83, 206);
+}
+
+#div_membre{
+  background-color: rgb(255, 255, 255);
+  border: 1px solid none;
+  box-shadow: #464545;
+  padding-bottom: 2%;
+  margin: 1%;
 }

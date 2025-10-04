@@ -2,16 +2,16 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title><%= title || "Gestion Coopérative" %></title>
+  <title><%= title || "Gestion des membres" %></title>
   <link rel="stylesheet" href="/css/style.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 min-h-screen">
-  <div class="grid-container">
+<div class="grid-container">
     <header class="header">
       <div id="tableau_bord">
-        <div style="font-size: larger; font-weight: bolder;"><p>Tableau de bord</p></div>
+        <div style="font-size: larger; font-weight: bolder;"><p>Getion des membres</p></div>
         <div style="font-size: smaller; font-weight:lighter; font-style: italic;">
           <p>Coopérative agricole</p>
         </div>
@@ -45,7 +45,7 @@
         </div>
       </div>
       <div id="boutons">
-        <a href="/membre">
+        <a href="/membres">
             <div class="rubrique" id="membre">
             <span class="material-icons-outlined">group</span>
             <p style="padding-left: 5px;">Membres</p>
@@ -103,92 +103,63 @@
       
     </aside>
     <main class="main-container">
-      <div class="grid grid-cols-5 gap-3 mb-2 mt-2">
-        <div class="p-4 bg-white shadow rounded text-center">
-          <span class="material-icons-outlined">group</span>
-          <p class="text-gray-500">Membres actifs</p>
-          <p class="text-3xl font-bold"><%= stats.membres %></p>
+      <div class="alignement">
+        <div id="tableau_bord">
+          <div style="font-size: larger; font-weight: bolder;"><p>Membres (10)</p></div>
+          <div style="font-size: smaller; font-weight:lighter; font-style: italic;">
+          <p>Gestion des membres de la coopérative</p>
+          </div>
         </div>
-        <div class="p-4 bg-white shadow rounded text-center">
-          <span class="material-icons-outlined">area_chart</span>
-          <p class="text-gray-500">Parcelles</p>
-          <p class="text-3xl font-bold"><%= stats.parcelles %></p>
-        </div>
-        <div class="p-4 bg-white shadow rounded text-center">
-          <span class="material-icons-outlined">attach_money</span>
-          <p class="text-gray-500">Cotisations (XOF)</p>
-          <p class="text-3xl font-bold"><%= stats.cotisations.toLocaleString() %></p>
-        </div>
-        <div class="p-4 bg-white shadow rounded text-center">
-          <span class="material-icons-outlined">grain</span>
-          <p class="text-gray-500">Production totale (t)</p>
-          <p class="text-3xl font-bold"><%= stats.parcelles %></p>
-        </div>
-        <div class="p-4 bg-white shadow rounded text-center">
-          <span class="material-icons-outlined">shopping_cart</span>
-          <p class="text-gray-500">Ventes (XOF)</p>
-          <p class="text-3xl font-bold"><%= stats.cotisations.toLocaleString() %></p>
+        <div class="alignement" id="rubrique" style="background-color: rgb(13, 51, 222);border-radius: 3%;">
+          <span class="material-icons-outlined">add</span>
+          <button type="submit" class="text-white px-4 py-1">Ajouter un membre</button>
         </div>
       </div>
-      <!-- Graphiques -->
-      <div class="alignement" style="justify-content:flex-start;">
-        <div class="p-4 bg-red-100 shadow rounded" id="alignement">
-          <div>
-            <span class="material-icons-outlined" style="color: rgb(236, 158, 158);">warning</span>
-          </div>
-          <div style="padding-left: 2%;">
-            <h2 class="font-bold text-red-500 mb-2">Cotisations en retard</h2>
-            <h2 class="italic text-red-500 mb-2">1 membre en retard de cotisation</h2>
-          </div>
+      <div class="alignement" style="padding-top: 0%;">
+        <div style="width: 60%;">
+          <input type="text" class="recherche-input" placeholder="Rechercher par nom ou numéro">
         </div>
-        <div class="p-4 bg-green-100 shadow rounded" id="alignement">
-          <div>
-            <span class="material-icons-outlined" style="color: rgb(158, 236, 175);">check</span>
-          </div>
-          <div style="padding-left: 2%;">
-            <h2 class="font-bold text-green-500 mb-2">Cotisations payés</h2>
-            <h2 class="italic text-green-500 mb-2">84 Membres ont totalement payés leurs cotisations</h2>
-          </div>
+        <div style="width: 20%;">
+          <select style="padding: 3%; border-radius: 3%;">
+            <option>Tous les statuts</option>
+          </select>
+        </div>
+        <div class="alignement" style=" border-radius: 3%; background-color: rgb(255, 255, 255);">
+          <span class="material-icons-outlined" style="color: black;">vertical_align_bottom</span>
+          <button type="submit" class="text-white px-4 py-1" style="color: black;">Exporter</button>
         </div>
       </div>
-      <div>
-        <div class="p-2 bg-white shadow rounded">
-          <h2 class="font-bold mb-2">Actions rapides</h2>
-          <div class="action_rapide">
-            <a href="#">
-              <div class="alignement" id="ajouter"
-              style="background-color: rgb(179, 228, 179); border: 0.1 solid green; border-radius: 3%; padding: 10px 30px 10px 30px;">
-                <span class="material-icons-outlined">group</span>
-                <h3 class="mb-2 pl-1">Ajouter membre</h3>
-              </div>
-            </a>
-            <a href="#">
-              <div class="alignement" id="ajouter"
-              style="background-color: rgb(179, 202, 228); border: 0.1 solid blue; border-radius: 3%; padding: 10px 30px 10px 30px;">
-                <span class="material-icons-outlined">attach_money</span>
-                <h3 class="mb-2 pl-1">Enregistrer cotisation</h3>
-              </div>
-            </a>
-            <a href="#">
-              <div class="alignement" id="ajouter"
-              style="background-color: rgb(228, 179, 226); border: 0.1 solid purple; border-radius: 3%; padding: 10px 30px 10px 30px;">
-                <span class="material-icons-outlined">grain</span>
-                <h3 class="mb-2 pl-1">Ajouter recolte</h3>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </main>
+
+<table class="w-full border">
+  <thead>
+    <tr class="bg-gray-200">
+      <th class="p-2 border">ID</th>
+      <th class="p-2 border">Nom</th>
+      <th class="p-2 border">Prénom</th>
+      <th class="p-2 border">Téléphone</th>
+      <th class="p-2 border">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% membre.forEach(m => { %>
+      <tr>
+        <td class="border p-2"><%= m.id %></td>
+        <td class="border p-2"><%= m.nom %></td>
+        <td class="border p-2"><%= m.prenom %></td>
+        <td class="border p-2"><%= m.telephone %></td>
+        <td class="border p-2">
+          <a href="#" class="text-red-500">Supprimer</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+</main>
     <footer>
     </footer>
     <script src="/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/js/dashboard.js"></script>
-    <script>
-      //const stats = <%= JSON.stringify(stats) %>; // Injection des données backend
-      //initDashboard(stats);
-    </script>
   </div>
 </body>
 </html>
