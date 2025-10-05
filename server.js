@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
   };
   res.render("dashboard", { title: "Tableau de bord", stats });
 });
-app.get("/membre", (req, res) => {
+app.get("/membres", (req, res) => {
   const membres = [
     { id: 1, nom: 'Koffi', prenom: 'Jean', telephone: 120 },
     { id: 2, nom: 'Yao', prenom: 'Léon', telephone: 150 },
@@ -59,6 +59,27 @@ app.get("/membre", (req, res) => {
     { id: 4, nom: 'Trazié', prenom: 'Georges', telephone: 220 }
   ];
   res.render("membre", { title: "Gestion des membres", membre: membres });
+});
+app.get("/productions", (req, res) => {
+  const productions = [
+    { id: 1, nom: 'Koffi', prenom: 'Jean', telephone: 120 },
+    { id: 2, nom: 'Yao', prenom: 'Léon', telephone: 150 },
+    { id: 3, nom: 'Koné', prenom: 'Isaac', telephone: 180 },
+    { id: 4, nom: 'Trazié', prenom: 'Georges', telephone: 220 },
+    { id: 1, nom: 'Koffi', prenom: 'Jean', telephone: 120 },
+    { id: 2, nom: 'Yao', prenom: 'Léon', telephone: 150 },
+    { id: 3, nom: 'Koné', prenom: 'Isaac', telephone: 180 },
+    { id: 4, nom: 'Trazié', prenom: 'Georges', telephone: 220 },
+     { id: 1, nom: 'Koffi', prenom: 'Jean', telephone: 120 },
+    { id: 2, nom: 'Yao', prenom: 'Léon', telephone: 150 },
+    { id: 3, nom: 'Koné', prenom: 'Isaac', telephone: 180 },
+    { id: 4, nom: 'Trazié', prenom: 'Georges', telephone: 220 },
+    { id: 1, nom: 'Koffi', prenom: 'Jean', telephone: 120 },
+    { id: 2, nom: 'Yao', prenom: 'Léon', telephone: 150 },
+    { id: 3, nom: 'Koné', prenom: 'Isaac', telephone: 180 },
+    { id: 4, nom: 'Trazié', prenom: 'Georges', telephone: 220 }
+  ];
+  res.render("production", { title: "Gestion de la production", production: productions });
 });
 
 
